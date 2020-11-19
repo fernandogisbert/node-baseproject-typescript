@@ -1,4 +1,5 @@
 import express from 'express';
+import productRoutes from './routes/product.routes';
 import userRoutes from './routes/user.routes';
 
 
@@ -15,3 +16,6 @@ app.listen(app.get('port'), () => {
 
 // usamos la ruta que hemos exportado en user.routes.ts
 app.use('/users', userRoutes.router);
+
+// usamos la ruta que exportamos en product.routes.ts
+app.use('/products', productRoutes.router);
