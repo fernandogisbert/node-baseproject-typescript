@@ -1,13 +1,17 @@
 import {Model, DataTypes, Sequelize} from 'sequelize';
 import {database} from "../database";
+import { Providers } from './providers.model';
 
 export class Products extends Model {
+
     public id!: number;
     public name!: string;
     public price!: number;
     public category_products!: number;
     public createdAt!: Date;
     public updatedAt!: Date;
+    // public providersId!: number;
+   
 }
 
 Products.init(
@@ -18,11 +22,11 @@ Products.init(
             primaryKey: true,
             allowNull: false
         },
-        name!: {
+        name: {
             type: DataTypes.STRING,
             allowNull: false
         },
-        price!: {
+        price: {
             type: DataTypes.DECIMAL(5,2),
             allowNull: false
         },
@@ -37,9 +41,17 @@ Products.init(
         updatedAt: {
             type: DataTypes.DATE,
             defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
-        }
+        },
+        // providerId: {
+        //     type: DataTypes.INTEGER
+        // }
     },
     {
         tableName: 'products',
         sequelize: database
     });
+
+
+Products.belongsTo(Providers);
+Providers.hasMany(Products);
+    

@@ -1,6 +1,6 @@
 import {Request, Response} from 'express';
 import{ User} from '../models/usuarios.model';
-import { Op } from 'sequelize';
+// import { Op } from 'sequelize';
 
 class UsersController {
     public async index (req: Request, res: Response){

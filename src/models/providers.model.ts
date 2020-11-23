@@ -1,5 +1,7 @@
 import {Model, DataTypes, Sequelize} from 'sequelize';
 import {database} from "../database";
+import {Products} from "./products.model"
+
 
 export class Providers extends Model {
     public id!: number;
@@ -18,15 +20,15 @@ Providers.init(
             primaryKey: true,
             allowNull: false
         },
-        name!: {
+        name: {
             type: DataTypes.STRING,
             allowNull: false
         },
-        email!: {
+        email: {
             type: DataTypes.STRING,
             allowNull: false
         },
-        phone!: {
+        phone: {
             type: DataTypes.INTEGER,
             allowNull: false
         },
@@ -42,5 +44,5 @@ Providers.init(
     {
         tableName: 'providers',
         sequelize: database
-        
     });
+
