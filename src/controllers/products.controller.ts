@@ -45,6 +45,8 @@ class ProductsController {
             res.sendStatus(500);
         };
     }
+
+  
         // try {
         //     const providers = await Providers.findAll({raw:true})
         //         res.send(providers);
